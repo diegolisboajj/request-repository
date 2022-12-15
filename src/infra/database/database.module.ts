@@ -1,16 +1,19 @@
+/* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
-import { NotificationsRepository } from 'src/application/repositories/notifications-repository';
+import { NotificationRepository } from '@application/repositories/notifications-repository';
 import { PrismaService } from './prisma/prisma.service';
 import { PrismaNotificationsRepository } from './prisma/repositories/prisma-notifications-repository';
 
 @Module({
-  providers: [
-    PrismaService,
-    {
-      provide: NotificationsRepository,
-      useClass: PrismaNotificationsRepository,
-    },
-  ],
-  exports: [NotificationsRepository],
+   providers: [
+      PrismaService,
+      {
+         provide: NotificationRepository,
+         useClass: PrismaNotificationsRepository
+      }
+   ],
+   exports: [
+      NotificationRepository
+   ]
 })
-export class DatabaseModule {}
+export class DatabaseModule { }

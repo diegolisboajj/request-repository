@@ -1,21 +1,23 @@
+/* eslint-disable prettier/prettier */
+
 export class Content {
-  private readonly content: string;
+   private readonly content: string;
 
-  get value(): string {
-    return this.content;
-  }
+   get value() {
+      return this.content;
+   }
 
-  private validateContentLength(content: string): boolean {
-    return content.length >= 5 && content.length <= 240;
-  }
+   private validateContentLength(content: string): boolean {
+      return content.length >= 5 && content.length <= 240;
+   }
 
-  constructor(content: string) {
-    const isContentLengthValid = this.validateContentLength(content);
+   constructor(content: string) {
+      const isContentLengthValid = this.validateContentLength(content);
 
-    if (!isContentLengthValid) {
-      throw new Error('Content Length error.');
-    }
+      if (!isContentLengthValid) {
+         throw new Error('Content length error.')
+      }
 
-    this.content = content;
-  }
+      this.content = content;
+   }
 }
